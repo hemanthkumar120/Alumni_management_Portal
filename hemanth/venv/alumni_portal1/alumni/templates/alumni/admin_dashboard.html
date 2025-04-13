@@ -1,0 +1,33 @@
+{% extends 'alumni/base.html' %}
+{% block content %}
+<div class="container">
+  <h2 class="mb-4">🛠️ Admin Dashboard</h2>
+
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <div class="card p-3">
+        <h4>Total Alumni: <span class="badge bg-primary">{{ total_alumni }}</span></h4>
+        <h4>Total Events: <span class="badge bg-success">{{ total_events }}</span></h4>
+        
+        <a href="{% url 'create_announcement' %}" class="btn btn-warning mt-3">📢 Post New Announcement</a>
+        <a href="{% url 'add_event' %}" class="btn btn-info mt-2">➕ Add New Event</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mt-4 p-3">
+    <h5>Recent Event Registrations</h5>
+    <ul class="list-group">
+      {% if recent_regs %}
+        {% for reg in recent_regs %}
+          <li class="list-group-item">
+            {{ reg.alumni.user.get_full_name }} registered for "{{ reg.event.title }}"
+          </li>
+        {% endfor %}
+      {% else %}
+        <li class="list-group-item text-muted">No recent registrations yet.</li>
+      {% endif %}
+    </ul>
+  </div>
+</div>
+{% endblock %}

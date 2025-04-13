@@ -1,0 +1,23 @@
+{% extends 'alumni/base.html' %}
+{% block content %}
+<div class="container mt-4">
+  <h2 class="text-center">🎓 Connect with Alumni</h2>
+  <form method="get" class="mb-3">
+    <input type="text" name="q" class="form-control" placeholder="Search by name or course...">
+  </form>
+
+  {% for a in alumni_list %}
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5>{{ a.user.get_full_name }}</h5>
+        <p>{{ a.course }} ({{ a.graduation_year }}) - {{ a.job_title }}</p>
+        <p>{{ a.location }}</p>
+        {% if a.profile_picture %}
+          <img src="{{ a.profile_picture.url }}" width="100" class="rounded">
+        {% endif %}
+        <p>{{ a.bio }}</p>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

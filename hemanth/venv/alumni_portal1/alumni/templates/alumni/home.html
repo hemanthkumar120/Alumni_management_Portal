@@ -1,0 +1,14 @@
+{% extends 'alumni/base.html' %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <div class="card shadow p-4 border-0" style="max-width: 600px; margin: auto;">
+        <h2 class="mb-3 text-primary">🎓 Welcome to the Alumni Management System</h2>
+        <p class="lead">Stay connected, attend events, and be part of our growing alumni network.</p>
+        <div class="mt-4">
+            <a href="{% url 'signup' %}" class="btn btn-success btn-lg mx-2">Sign Up</a>
+            <a href="{% url 'login' %}" class="btn btn-outline-primary btn-lg mx-2">Log In</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

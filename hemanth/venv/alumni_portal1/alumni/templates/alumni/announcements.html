@@ -1,0 +1,15 @@
+{% extends 'alumni/base.html' %}
+{% block content %}
+<h2>Announcements</h2>
+{% for ann in announcements %}
+<div class="card mb-3">
+  <div class="card-body">
+    <h5 class="card-title">{{ ann.title }}</h5>
+    <p class="card-text">{{ ann.message }}</p>
+    <small class="text-muted">{{ ann.date_posted }}</small>
+  </div>
+</div>
+{% empty %}
+  <p>No announcements.</p>
+{% endfor %}
+{% endblock %}
